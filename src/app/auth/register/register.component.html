@@ -1,0 +1,20 @@
+<p-card header="SINGUP" [style]="{'width': '25rem', 'margin-bottom': '2em', 'margin': 'auto'}">
+    <div class="field">
+        <label for="firstname1">Full name</label>
+        <input id="firstname1" pInputText type="text" class="inputfield w-full"  [(ngModel)]="name" name="name">
+    </div>
+    <div class="field">
+        <label for="">Your email</label>
+        <input type="text" pInputText [(ngModel)]="email" name="email">
+    </div>
+    <div class="field">
+        <label for="">Password</label>
+        <input type="password" pInputText [(ngModel)]="password" name="password"> 
+    </div>
+    <div class="field">
+        <button pButton pRipple type="button" label="SINGUP" (click)="register()"></button>
+    </div>
+    <small>
+        By Creating account You agree to the <span class="text-primary">Terms of use</span> and <span class="text-primary">Privacy Polycy</span>
+    </small>
+</p-card>

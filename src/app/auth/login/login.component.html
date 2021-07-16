@@ -1,0 +1,20 @@
+<p-card header="Login" [style]="{'margin': 'auto'}">
+    
+    <form>
+        <div class="field">
+            <label for="">Your email</label>
+            <input type="email" pInputText [(ngModel)]="email" name="email">
+        </div>
+
+        <div class="field">
+            <label for="">Password</label>
+            <input type="password" pInputText [(ngModel)]="password" name="password"> 
+        </div>
+
+        <div>
+            <button pButton pRipple type="button" label="LOGIN" (click)="login()"></button>
+        </div>
+    </form>
+</p-card>
+
+<p-toast position="top-right"></p-toast>

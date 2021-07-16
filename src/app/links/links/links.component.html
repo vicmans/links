@@ -1,0 +1,51 @@
+<div class="w-full">
+<div class="grid">
+    <div class="col-4">
+        <p-card>
+            <div *ngIf="user" class="text-center">
+                <img [src]="user.avatar" alt="" class="border-circle">
+                <p class="font-semibold">
+                    {{user.name}}
+                </p>
+                <p>
+                    {{user.email}}
+                </p>
+            </div>
+        </p-card>
+    </div>
+
+    <div class="col-8">
+        <p-card class="mb-4">
+            <form [formGroup]="form">
+                <div class="fluid">
+                    <div class="field">
+                        <label for="firstname1">URL To Save</label>
+                        <input id="firstname1" type="text" pInputText formControlName="url"> 
+                    </div>
+                    <div class="field">
+                        <label for="lastname1">Name Of URL</label>
+                        <input id="lastname1" type="text" pInputText formControlName="name"> 
+                    </div>
+                </div>
+                <div class="field text-right">
+                    <button pButton pRipple type="button" label="ADD" (click)="add()"></button>
+                </div>
+            </form>
+        </p-card>
+
+        <div *ngFor="let link of links" class="my-2 relative">
+            <p-card>
+                <h3><a href="{{link.url}}" target="_blank">{{link.url}}</a></h3>
+                <p>{{link.name}}</p>
+                <button (click)="destroy(link.id)" pButton class="p-button-danger p-button-text absolute top-0 right-0">
+                    <svg class="w-2rem h-2rem" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                </button>
+            </p-card>
+        </div>
+        
+    </div>
+</div>
+</div>
+
+<p-toast position="top-right"></p-toast>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
